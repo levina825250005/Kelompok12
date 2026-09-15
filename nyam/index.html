@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kos-kosan Bu Tri</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-text">
+        <h1>Kos Bu Tri</h1>
+        <p>Hunian Nyaman, Bersih, dan Strategis</p>
+
+        <div class="header-facilities">
+            <span>📶 Free WiFi</span>
+            <span>🚗 Free Parkiran</span>
+            <span>💧 Free Minum/Galon</span>
+            <span>🚿 Free WC Dalam</span>
+        </div>
+    </div>
+
+    <img src="luar.jpeg" alt="Foto Luar Kos Bu Tri" class="header-img">
+</header>
+
+    <nav>
+        <ul class="nav">
+            <li><a href="#homepage">Homepage</a></li>
+            <li><a href="#katalog">Katalog</a></li>
+            <li><a href="#lokasi">Lokasi</a></li>
+            <li><a href="#kontak">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- KONTEN MULTI-KOLOM (2 KOLOM) -->
+    <main class="container">
+        
+        <!-- KOLOM UTAMA (TABEL SPESIFIKASI & HARGA) -->
+        <section class="main-content">
+            <h2 id="homepage">Daftar Tipe Kamar & Fasilitas</h2>
+            <p>Pilihan kamar nyaman dengan fasilitas esensial lengkap siap huni.</p>
+            
+            <table class="kos-table">
+                <thead>
+                    <tr>
+                        <!-- Penerapan COLSPAN -->
+                        <th colspan="5" class="table-title">Spesifikasi & Harga Sewa Kamar Kos Bu Tri</th>
+                    </tr>
+                    <tr>
+                        <th>Tipe Kamar</th>
+                        <th>Ukuran</th>
+                        <th>Fasilitas Utama</th>
+                        <th>Kondisi Perabot</th>
+                        <th>Harga / Bulan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tipe Standard</strong></td>
+                        <td>3 &times; 3 Meter</td>
+                        <!-- Penerapan ROWSPAN untuk kamar mandi dalam -->
+                        <td rowspan="2" class="highlight-cell">Kamar Mandi Dalam (Keran &amp; Kloset Jongkok)</td>
+                        <!-- Penerapan ROWSPAN untuk non-furnished -->
+                        <td rowspan="2" class="highlight-cell">Non-Furnished (Kosongan)</td>
+                        <td class="price">Rp 550.000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tipe Deluxe</strong></td>
+                        <td>3 &times; 4 Meter</td>
+                        <td class="price">Rp 650.000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box">
+                <p><em>*Catatan: Harga sudah termasuk air bersih. Listrik menggunakan sistem token mandiri per kamar.</em></p>
+            </div>
+
+            <div class="lokasi">
+                <h3 id="lokasi">Lokasi Kos</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8728485528945!2d106.69503737398922!3d-6.147774393839246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f872fb6c605f%3A0xd289ec2d9bac0bc7!2sJl.%20Bahagia%20No.27%2C%20RT.3%2FRW.11%2C%20Kalideres%2C%20Kec.%20Kalideres%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011840!5e0!3m2!1sen!2sid!4v1789225659392!5m2!1sen!2sid" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            </div>
+
+            <div class="benefit">
+                <h3>Benefit Lokasi</h3>
+                <p>1.5 km dengan Halte Kalideres</p>
+                <p>1.3 km dengan Hari-Hari Pasar Swalayan</p>
+                <p>850 meter dengan RS Mitra Keluarga Kalideres</p>
+                <p>3.4 km dengan Mall Daan Mogot Baru</p>
+            </div>
+        </section>
+
+        <!-- SIDEBAR (KATALOG FOTO & KONTAK) -->
+        <aside class="sidebar">
+            <div class="card">
+                <h3 id="katalog">Katalog Foto Kamar</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="kamar2.png" alt="Kamar Standard">
+                        <span>Tipe Standard (3x3 m)</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="kamar1.png" alt="Kamar Deluxe">
+                        <span>Tipe Deluxe (3x4 m)</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="km.jpeg" alt="Kamar Mandi Dalam">
+                        <span>Kamar Mandi Dalam</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card contact-card">
+                <h3 id="kontak">Kontak & Lokasi</h3>
+                <p><strong>Pengelola:</strong> Ibu Tri</p>
+                <p><strong>WhatsApp:</strong> 0812-3456-7890</p>
+                <p><strong>Lokasi:</strong> Dekat Mitra Keluarga, Kalideres</p>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Kos Bu Tri. All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>
