@@ -2,8 +2,6 @@
 .admin-shell {
     --admin-text: #783f30;
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 245px minmax(0, 1fr);
     color: var(--admin-text);
     background: var(--white);
     font-family: "Castoro", serif
@@ -650,144 +648,17 @@
     text-align: left !important
 }
 
-@media(max-width:950px) {
-    .admin-stat-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-    }
-
-    .admin-shell {
-        grid-template-columns: 215px minmax(0, 1fr)
-    }
-
-    .admin-content {
-        padding: 22px
-    }
-}
-
-@media(max-width:700px) {
-    .admin-shell {
-        display: block
-    }
-
-    .admin-sidebar {
-        min-height: auto;
-        padding: 15px
-    }
-
-    .admin-brand {
-        padding: 0 4px 14px
-    }
-
-    .admin-menu-label {
-        margin-bottom: 7px
-    }
-
-    .admin-nav {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 5px
-    }
-
-    .admin-nav a {
-        flex-direction: column;
-        justify-content: center;
-        gap: 3px;
-        padding: 9px 4px;
-        font-size: .72rem
-    }
-
-    .admin-nav a span {
-        white-space: nowrap
-    }
-
-    .admin-sidebar-bottom {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 12px
-    }
-
-    .admin-back-link,
-    .admin-logout {
-        width: auto;
-        padding: 8px 10px;
-        font-size: .75rem
-    }
-
-    .admin-topbar {
-        min-height: 55px;
-        padding: 10px 16px
-    }
-
-    .admin-content {
-        padding: 19px 14px
-    }
-
-    .admin-page-heading {
-        align-items: flex-start;
-        flex-direction: column
-    }
-
-    .admin-stat-grid {
-        gap: 10px
-    }
-
-    .admin-stat-card {
-        gap: 9px;
-        padding: 13px
-    }
-
-    .admin-stat-icon {
-        flex-basis: 34px;
-        height: 34px
-    }
-
-    .admin-panel {
-        padding: 15px
-    }
-
-    .admin-panel-heading {
-        align-items: flex-start;
-        flex-direction: column
-    }
-
-    .admin-panel-heading .admin-search {
-        max-width: none
-    }
-
-    .admin-quick-grid {
-        grid-template-columns: 1fr
-    }
-
-    .admin-shell form.admin-form-grid,
-    .admin-detail-grid {
-        grid-template-columns: 1fr
-    }
-
-    .admin-field-full,
-    .admin-form-actions {
-        grid-column: auto
-    }
-}
-
-@media(max-width:390px) {
-    .admin-stat-grid {
-        grid-template-columns: 1fr
-    }
-}
-
-/* AdminLTE v4 integration: retain the Kos Ibu Tri brand and existing page/form styles. */
+/* AdminLTE v4 integration: biarkan AdminLTE mengatur kerangka dan perilaku sidebar responsif. */
 .admin-shell.app-wrapper {
-    display: grid;
-    grid-template-areas: "header header" "sidebar main" "footer footer";
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-rows: auto minmax(0, 1fr) auto;
     min-height: 100vh;
+    min-width: 0;
     color: var(--admin-text);
     background: #f4f6f9;
-    font-family: "Castoro", serif
+    font-family: "Castoro", serif;
+    overflow-x: clip;
 }
 
 .admin-shell .app-header {
-    grid-area: header;
     min-height: 58px;
     padding: .35rem 1rem;
     border-bottom: 1px solid rgba(34, 126, 157, .15);
@@ -795,8 +666,7 @@
 }
 
 .admin-shell .app-sidebar {
-    grid-area: sidebar;
-    min-height: calc(100vh - 110px);
+    min-height: 0;
     background: var(--teal-dark) !important;
     color: #fff
 }
@@ -886,8 +756,8 @@
 }
 
 .admin-shell .admin-main {
-    grid-area: main;
     min-width: 0;
+    width: 100%;
     background: #f4f6f9
 }
 
@@ -898,7 +768,6 @@
 }
 
 .admin-shell .admin-footer {
-    grid-area: footer;
     display: flex;
     justify-content: space-between;
     gap: 12px;
@@ -936,34 +805,6 @@
 .admin-shell .admin-delete-btn,
 .admin-shell .admin-close-btn {
     border-radius: 8px
-}
-
-@media(max-width:991.98px) {
-    .admin-shell.app-wrapper {
-        display: block
-    }
-
-    .admin-shell .app-sidebar {
-        min-height: 0
-    }
-
-    .admin-shell .admin-content {
-        padding: 20px 16px
-    }
-
-    .admin-shell .admin-footer {
-        margin-left: 0
-    }
-}
-
-@media(max-width:700px) {
-    .admin-shell .admin-footer {
-        flex-direction: column
-    }
-
-    .admin-shell .admin-topbar {
-        padding: 10px 16px
-    }
 }
 
 /* Data Pembayaran */
@@ -1010,3 +851,200 @@
         font-size: 20px;
     }
 }
+
+/* =====================================================
+   RESPONSIVE ADMIN — khusus area AdminLTE
+   Tidak mengubah halaman login atau website pengunjung.
+   ===================================================== */
+.admin-shell,
+.admin-shell *,
+.admin-shell *::before,
+.admin-shell *::after {
+    box-sizing: border-box;
+}
+
+.admin-shell.app-wrapper {
+    max-width: 100%;
+}
+
+.admin-shell .app-main,
+.admin-shell .app-content,
+.admin-shell .admin-content,
+.admin-shell .container-fluid,
+.admin-shell .admin-panel {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.admin-shell .admin-content {
+    width: 100%;
+    padding: 26px 28px;
+}
+
+.admin-shell .admin-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+}
+
+.admin-shell .admin-stat-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.admin-shell .admin-stat-card > div {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.admin-shell .admin-stat-card strong {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    line-height: 1.25;
+}
+
+.admin-shell .admin-table-wrap {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+}
+
+.admin-shell .admin-table {
+    width: 100%;
+}
+
+.admin-shell .admin-form-grid,
+.admin-shell .admin-detail-grid {
+    min-width: 0;
+}
+
+.admin-shell input,
+.admin-shell select,
+.admin-shell textarea,
+.admin-shell button {
+    max-width: 100%;
+}
+
+.admin-shell img,
+.admin-shell video,
+.admin-shell iframe {
+    max-width: 100%;
+}
+
+@media (max-width: 1199.98px) {
+    .admin-shell .admin-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-shell .admin-content {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .admin-shell .admin-content {
+        padding: 18px 14px;
+    }
+
+    .admin-shell .admin-page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .admin-shell .admin-page-heading > div {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .admin-shell .admin-page-heading h1 {
+        overflow-wrap: anywhere;
+        font-size: clamp(1.25rem, 6vw, 1.7rem);
+    }
+
+    .admin-shell .admin-panel {
+        padding: 15px;
+        margin-bottom: 16px;
+    }
+
+    .admin-shell .admin-panel-heading {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .admin-shell .admin-search {
+        width: 100%;
+        max-width: none;
+    }
+
+    .admin-shell form.admin-form-grid,
+    .admin-shell .admin-detail-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .admin-shell .admin-field-full,
+    .admin-shell .admin-form-actions {
+        grid-column: auto;
+    }
+
+    .admin-shell .admin-form-actions {
+        flex-wrap: wrap;
+    }
+
+    .admin-shell .admin-quick-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .admin-shell .admin-footer {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-shell .admin-content {
+        padding: 14px 10px;
+    }
+
+    .admin-shell .admin-stat-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .admin-shell .admin-stat-card {
+        padding: 14px;
+        gap: 11px;
+    }
+
+    .admin-shell .admin-stat-card strong {
+        font-size: 1.2rem;
+    }
+
+    .admin-shell .admin-panel {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .admin-shell .admin-actions {
+        flex-wrap: wrap;
+    }
+
+    .admin-shell .admin-primary-btn,
+    .admin-shell .admin-secondary-btn,
+    .admin-shell .admin-edit-btn,
+    .admin-shell .admin-delete-btn {
+        max-width: 100%;
+        white-space: normal;
+    }
+
+    .admin-shell .admin-user-chip {
+        padding: .35rem .55rem;
+        font-size: .72rem;
+    }
+}
+
