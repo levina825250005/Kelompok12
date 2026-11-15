@@ -1,0 +1,1383 @@
+/* =====================================================
+    VARIABEL WARNA
+   ===================================================== */
+
+:root {
+    --teal-dark: #227e9d;
+    --teal-mid: #51acc5;
+    --teal-light: #96d0d2;
+
+    --white: #fdf9fa;
+
+    --pink-light: #fda5cc;
+    --pink-dark: #fd50a4;
+
+    --text: #783f30;
+}
+
+/* =====================================================
+    PENGATURAN DASAR
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Castoro", serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Inknut Antiqua", serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.layout {
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: #fff;
+    background: var(--teal-dark);
+
+    display: inline-block;
+
+    padding: 2px 8px;
+
+    border-radius: 10px;
+}
+
+.layout.center {
+    display: block;
+    width: fit-content;
+
+    margin: 0 auto 8px;
+}
+
+/* =====================================================
+    HEADER DAN NAVIGASI
+   ===================================================== */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px 16px;
+
+    padding: 12px 24px;
+
+    background: var(--teal-dark);
+    color: #fff;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .logo {
+    font-family: "Inknut Antiqua", serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Area navigasi */
+header nav {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Menu navigasi */
+header nav>ul {
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 1.05rem;
+    flex-wrap: wrap;
+}
+
+/* Item navigasi */
+header nav>ul>li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.has-submenu>a::after {
+    content: "\25BE";
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 0.7rem;
+}
+
+nav a:hover {
+    border-bottom: 2px solid var(--pink-dark);
+}
+
+
+/* Submenu disembunyikan secara default */
+nav ul li .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 170px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    margin-top: 8px;
+}
+
+/* Submenu muncul saat item induk di-hover (mouse) ATAU di-tap/fokus (HP, keyboard) */
+nav ul li:hover .submenu,
+nav ul li:focus-within .submenu {
+    display: block;
+}
+
+nav ul li .submenu li {
+    display: block;
+}
+
+nav ul li .submenu a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    font-size: 0.85rem;
+}
+
+nav ul li .submenu li:hover {
+    background: var(--pink-light);
+}
+
+.btn-pink {
+    background: var(--pink-dark);
+
+    color: #fff;
+
+    padding: 8px 18px;
+
+    border-radius: 20px;
+
+    font-size: 0.85rem;
+}
+
+/* =====================================================
+    HERO HOME
+   ===================================================== */
+
+.hero {
+    min-height: 52vh;
+    text-align: left;
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 40px 24px;
+
+    background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+
+    max-width: 520px;
+
+    line-height: 1.2;
+
+    margin-top: 10px;
+}
+
+.hero p {
+    margin-top: 10px;
+
+    max-width: 420px;
+
+    font-size: 0.95rem;
+}
+
+.search-box {
+    margin-top: 22px;
+    margin-left: 0;
+    margin-right: auto;
+
+    background: var(--white);
+
+    width: 100%;
+    max-width: 640px;
+    min-width: 0;
+
+    border-radius: 16px;
+    padding: 12px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    gap: 10px;
+    color: var(--text);
+
+    box-sizing: border-box;
+}
+
+.search-box input,
+.search-box select {
+    flex: 1 1 0;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 8px 10px;
+
+    font-family: inherit;
+    font-size: 0.85rem;
+
+    box-sizing: border-box;
+}
+
+.search-box button {
+    background: var(--pink-dark);
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 8px 16px;
+
+    font-family: "Castoro", serif;
+
+    cursor: pointer;
+}
+
+/* =====================================================
+    HERO HALAMAN LAIN
+   ===================================================== */
+
+.page-hero {
+    background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+
+    color: #fff;
+
+    padding: 35px 24px;
+
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+
+    margin-top: 8px;
+}
+
+.page-hero p {
+    margin-top: 8px;
+
+    font-size: 0.9rem;
+
+    max-width: 480px;
+
+    margin-inline: auto;
+}
+
+/* =====================================================
+    SECTION UMUM
+   ===================================================== */
+
+section {
+    padding: 45px 24px;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.section-sub {
+    text-align: center;
+
+    color: #555;
+
+    max-width: 520px;
+
+    margin: 0 auto 30px;
+
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+    TENTANG
+   ===================================================== */
+
+.about {
+    background: var(--pink-light);
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+.about-img {
+    min-height: 280px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.about-img img {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 280px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.about-content {
+    max-width: 550px;
+}
+
+.about-content h2 {
+    font-size: 1.8rem;
+
+    margin-top: 8px;
+
+    margin-bottom: 10px;
+}
+
+.about-content p {
+    font-size: 0.9rem;
+
+    color: #444;
+}
+
+@media (min-width: 700px) {
+    .about {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =====================================================
+    VIDEO PROFIL
+   ===================================================== */
+
+.video-section {
+    background: var(--teal-light);
+
+    text-align: center;
+}
+
+.video-wrapper {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper video {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+/* =====================================================
+    BAGIAN KAMAR
+   ===================================================== */
+
+.room-section {
+    background: var(--teal-light);
+}
+
+
+/* Bootstrap Room Card - Kost Ibu Tri */
+.room-card {
+    height: 100%;
+    border: 1px solid var(--teal-light);
+    border-radius: 16px;
+    overflow: hidden;
+    scroll-margin-top: 90px;
+}
+
+.room-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.room-card .card-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.room-card .card-title {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.room-card .card-text {
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0;
+}
+
+.room-card .card-body .list-group {
+    width: 100%;
+    padding: 0;
+}
+
+.room-card .list-group-item {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+}
+
+.room-card .room-booking-btn {
+    display: inline-block;
+    margin-top: auto;
+    background: var(--pink-dark);
+    border: 1px solid var(--pink-dark);
+    color: #fff;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.room-card .room-booking-btn:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+}
+
+
+/* =====================================================
+    GRID
+   ===================================================== */
+
+.grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+}
+
+/* =====================================================
+    CARD KAMAR
+   ===================================================== */
+
+.card {
+    background: #fff;
+
+    border: 1px solid var(--teal-light);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    scroll-margin-top: 90px;
+}
+
+.card-img {
+    height: 200px;
+
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+.card-body h3 {
+    font-size: 1rem;
+
+    margin-bottom: 5px;
+}
+
+.card-body p,
+.card-body ul {
+    font-size: 0.8rem;
+
+    color: #555;
+
+    margin-bottom: 10px;
+}
+
+.card-body ul {
+    padding-left: 18px;
+}
+
+.price {
+    color: var(--pink-dark);
+
+    font-weight: 700;
+
+    font-size: 0.95rem;
+
+    display: block;
+
+    margin-bottom: 12px;
+}
+
+.card-body a {
+    display: inline-block;
+
+    background: var(--teal-dark);
+
+    color: #fff;
+
+    font-size: 0.8rem;
+
+    padding: 7px 14px;
+
+    border-radius: 16px;
+}
+
+/* =====================================================
+    FASILITAS
+   ===================================================== */
+
+.facilities {
+    background: var(--white);
+}
+
+.facility-section {
+    background: var(--white);
+}
+
+.green-section {
+    background: var(--teal-light);
+}
+
+.fac-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+    gap: 16px;
+}
+
+.fac-card {
+    background: #fff;
+
+    border: 1px solid var(--teal-light);
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.fac-emoji {
+    font-size: 2.2rem;
+
+    margin-bottom: 8px;
+}
+
+.fac-card h3 {
+    font-size: 0.95rem;
+
+    margin-bottom: 4px;
+}
+
+.fac-card p {
+    font-size: 0.8rem;
+
+    color: #555;
+}
+
+.tag {
+    display: inline-block;
+
+    font-size: 0.65rem;
+
+    background: var(--pink-light);
+
+    color: #7a0040;
+
+    padding: 2px 8px;
+
+    border-radius: 10px;
+
+    margin-bottom: 8px;
+}
+
+/* =====================================================
+    AKSES LOKASI
+   ===================================================== */
+
+.access {
+    background: var(--teal-light);
+    padding-top: 20px;
+}
+
+.access-content {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    align-items: center;
+}
+
+.access-img {
+    height: 250px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.access-img img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.access-text {
+    background: #fff;
+
+    padding: 25px;
+
+    border-radius: 16px;
+}
+
+.access-text h3 {
+    margin-bottom: 8px;
+}
+
+.access-text p {
+    font-size: 0.9rem;
+
+    color: #555;
+
+    margin-bottom: 10px;
+}
+
+@media (min-width: 700px) {
+    .access-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.map-wrapper {
+    max-width: 900px;
+
+    margin: 25px auto 0;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+
+    height: 320px;
+
+    border: 0;
+
+    display: block;
+}
+
+/* =====================================================
+    TABEL
+   ===================================================== */
+
+.table-wrapper {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    min-width: 480px;
+
+    margin: 0 auto;
+
+    border-collapse: collapse;
+
+    background: #fff;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    font-size: 0.85rem;
+}
+
+th,
+td {
+    padding: 10px 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid var(--teal-light);
+}
+
+th {
+    background: var(--teal-dark);
+
+    color: #fff;
+}
+
+th[colspan],
+th[rowspan] {
+    text-align: center;
+}
+
+/* =====================================================
+    PROMO
+   ===================================================== */
+
+.promo-section {
+    background: var(--pink-light);
+}
+
+.promo-card {
+    background: #fff;
+
+    border: 1px solid var(--teal-light);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.promo-card>img {
+    width: 100%;
+
+    height: 270px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.promo-body {
+    padding: 14px;
+}
+
+.promo-body .tag {
+    font-size: 0.65rem;
+
+    background: var(--teal-light);
+
+    padding: 2px 8px;
+
+    border-radius: 10px;
+}
+
+.promo-body h3 {
+    font-size: 0.95rem;
+
+    margin: 8px 0 4px;
+}
+
+.promo-body p {
+    font-size: 0.8rem;
+
+    color: #555;
+}
+
+/* =====================================================
+    CTA
+   ===================================================== */
+
+.cta {
+    background: var(--teal-light);
+
+    text-align: center;
+}
+
+.cta h2 {
+    margin-top: 8px;
+
+    margin-bottom: 10px;
+}
+
+.cta p {
+    font-size: 0.9rem;
+}
+
+.cta a {
+    display: inline-block;
+
+    margin-top: 14px;
+
+    background: var(--pink-dark);
+
+    color: #fff;
+
+    padding: 12px 28px;
+
+    border-radius: 24px;
+
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+    FORM BOOKING
+   ===================================================== */
+
+.booking {
+    background: var(--pink-light);
+}
+
+form {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    background: var(--white);
+
+    border-radius: 16px;
+
+    padding: 25px;
+}
+
+/* Setiap baris form */
+.form-row {
+    display: grid;
+
+    grid-template-columns: 145px 15px 1fr;
+
+    gap: 5px;
+
+    align-items: start;
+
+    margin-bottom: 15px;
+}
+
+/* Nama field */
+.form-row label {
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    padding-top: 9px;
+}
+
+/* Titik dua */
+.form-row>span {
+    font-size: 0.85rem;
+
+    padding-top: 9px;
+
+    text-align: center;
+}
+
+/* Input, select, dan textarea */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: "Castoro", serif;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+
+/* Radio dan checkbox */
+.choice-group {
+    margin-bottom: 15px;
+}
+
+.choice-group>label {
+    display: block;
+    font-family: "Castoro", serif;
+    font-size: 1rem;
+    font-weight: 580;
+    margin-bottom: 8px;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    align-items: center;
+}
+
+.choices label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "Castoro", serif;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.choices input[type="radio"],
+.choices input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Tombol form */
+form button {
+    width: 100%;
+    margin-top: 5px;
+    background: var(--pink-dark);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-family: "Castoro", serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* =====================================================
+    FOOTER
+   ===================================================== */
+
+footer {
+    background: var(--teal-dark);
+
+    color: #fff;
+
+    text-align: center;
+
+    padding: 20px;
+
+    font-size: 1rem;
+}
+
+/* =====================================================
+    RESPONSIVE FORM
+   ===================================================== */
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 14px;
+    }
+
+    nav ul {
+        justify-content: center;
+
+        gap: 10px 14px;
+
+        font-size: 0.8rem;
+    }
+
+    .btn-pink {
+        width: 100%;
+
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 125px 10px 1fr;
+    }
+}
+
+/* DROPDOWN SIMPLE FIX */
+nav ul li {
+    position: relative;
+}
+
+nav ul li .submenu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    min-width: 180px;
+    background: white;
+    list-style: none;
+    padding: 8px 0;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+    z-index: 9999;
+}
+
+nav ul li:hover>.submenu,
+nav ul li:focus-within>.submenu {
+    display: block;
+}
+
+nav ul li .submenu li {
+    display: block;
+}
+
+nav ul li .submenu a {
+    color: #2b2b2b;
+    display: block;
+    padding: 10px 16px;
+}
+
+nav ul li .submenu a:hover {
+    background: var(--pink-light);
+}
+
+/* Dropdown Home - versi lebih mudah diklik */
+nav ul li.has-submenu>.submenu {
+    padding: 10px 0;
+    margin-top: 0;
+    pointer-events: auto;
+}
+
+nav ul li.has-submenu:hover>.submenu,
+nav ul li.has-submenu:focus-within>.submenu {
+    display: block;
+}
+
+nav ul li.has-submenu>.submenu::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+}
+
+nav ul li.has-submenu>.submenu a {
+    padding: 12px 18px;
+}
+
+.contact-section {
+    padding: 40px 8% 20px;
+    background-color: var(--pink-light);
+}
+
+/* React refactor additions */
+.site-header .logo {
+    color: inherit;
+}
+
+.site-header nav a.active {
+    border-bottom: 2px solid var(--pink-dark);
+}
+
+.site-header nav a {
+    display: inline-block;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+.search-box input,
+.search-box select {
+    min-width: 150px;
+}
+
+.search-box button,
+.booking button,
+.reset-search {
+    border: 0;
+    cursor: pointer;
+    background: var(--pink-dark);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 22px;
+    font: inherit;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.grid .card {
+    min-width: 0;
+}
+
+.card-img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.card-body ul {
+    padding-left: 20px;
+}
+
+.card-body a {
+    display: inline-block;
+    background: var(--pink-dark);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    margin-top: auto;
+}
+
+.fac-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.fac-card {
+    text-align: center;
+}
+
+.promo-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+}
+
+.promo-card {
+    overflow: hidden;
+}
+
+.promo-body {
+    padding: 18px;
+}
+
+.booking form {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.booking form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.booking input:not([type="radio"]):not([type="checkbox"]),
+.booking select,
+.booking textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+}
+
+.booking textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.booking .choice-group .choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.booking .choices label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.booking form>button {
+    justify-self: start;
+
+    width: 100%;
+    max-width: none;
+
+    height: 50px;
+    padding: 12px 24px;
+
+    font-size: 0.95rem;
+    margin-top: 20px;
+
+    box-sizing: border-box;
+}
+
+.form-success,
+.empty-state {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.form-success {
+    color: #167344;
+}
+
+.contact-card {
+    max-width: 520px;
+    margin: 20px auto;
+}
+
+.more-link {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.more-link a {
+    color: var(--teal-dark);
+    text-decoration: underline;
+}
+
+.reset-search {
+    margin: 15px auto;
+    display: block;
+}
+
+@media (max-width: 850px) {
+
+    .grid,
+    .fac-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .site-header {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .grid,
+    .fac-grid,
+    .booking form {
+        grid-template-columns: 1fr;
+    }
+
+    .site-header {
+        padding: 12px 16px;
+    }
+
+    .site-header nav ul {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        box-sizing: border-box;
+    }
+
+    .search-box input,
+    .search-box select,
+    .search-box button {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    .booking form>button {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+}
